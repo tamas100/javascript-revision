@@ -39,3 +39,21 @@ function convertNumberSystem(numbers, numberSystem) {
 x = 2 ** 24 - parseInt("FFFFFF", 16);
 console.log(x);
 
+
+console.log(
+    'FF in base 10:',
+    Number.parseInt('FF', 16),
+    '\nFF in base 2: ',
+    Number.parseInt('FF', 16).toString(2)
+);
+
+
+let baseTen = Number.parseInt('FF', 16);
+let hexaNumber = "FF";
+
+console.log(
+    hexaNumber + ' in base 10:',
+    baseTen,
+    '\n' + hexaNumber + ' in base 2: ',
+    baseTen.toString(2)
+);
