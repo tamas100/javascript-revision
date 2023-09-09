@@ -22,8 +22,20 @@ function kamatosKamat(tőke, kamat, évek) {
     return tőke * (1 + kamat / 100) ** évek;
 }
 
+const numbersIn16 = [0, "F", "ff", "FFFFFF", 99, 10]
 
-let a = "Próba";
-let b = "szöveg";
-let c = a.concat(" ", b, "!");
-console.log(c); // Próba szöveg!
+function convertNumberSystem(numbers, numberSystem) {
+    let convertedNumbers = [];
+    let convertedNumbers2 = [];
+    for (let i = 0; i < numbers.length; i++) {
+        convertedNumbers.push(parseInt(numbers[i], numberSystem));
+        convertedNumbers2.push(convertedNumbers[i].toString(2));
+    }
+    let returnElements = [convertedNumbers, convertedNumbers2]
+
+    return returnElements;
+}
+
+x = 2 ** 24 - parseInt("FFFFFF", 16);
+console.log(x);
+
