@@ -57,3 +57,39 @@ console.log(
     '\n' + hexaNumber + ' in base 2: ',
     baseTen.toString(2)
 );
+
+function makeArray(length) {
+    let array = [];
+    for (i = 0; i < length; i++) {
+        array.push(i + 1);
+    }
+    return array;
+}
+
+let newArray = makeArray(5);
+
+let xx = newArray.pop();
+let xy = newArray.shift();
+console.log("newArray= " + newArray, xx, xy);
+
+
+let numbers = makeArray(10);
+console.log("numbers= " + numbers);
+console.log(numbers.slice(1));
+console.log(numbers.slice(9));
+console.log(numbers.slice(0));
+console.log(numbers.slice(3, 6));
+console.log(numbers.slice(3, 4));
+
+// shallow copy
+let original = [newArray, numbers];
+let copy = original.slice(0);
+
+console.log(original, copy);
+
+newArray[0] = 55;
+numbers[10] = 155;
+
+console.log(original, copy);
+
+
