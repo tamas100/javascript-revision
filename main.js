@@ -173,3 +173,34 @@ tree.tree = tree;
 console.log(tree.leaf);
 console.log(tree.tree.leaf);
 console.log(tree.tree.tree.leaf);
+
+// névtelen füöggvény
+let kamatosKamatNévtelen = function (tőke, kamat, évek) {
+    return tőke * (1 + kamat / 100) ** évek;
+}
+
+// fat arrow 
+let kamatosKamatFatArrow = (tőke, kamat, évek) => tőke * (1 + kamat / 100) ** évek;
+let square2 = a => a * a;
+
+// Azonnal meghívott függvénykifejezés IIFE
+(function (tőke, kamat, évek) { return tőke * (1 + kamat / 100) ** évek; })(200000, 4, 10);
+((tőke, kamat, évek) => tőke * (1 + kamat / 100) ** évek)(200000, 4, 10);
+
+//34., 35. gyakorlat
+/**
+* Hexadecimális számot konvertál tizes, aztán kettes 
+* számrendszerbe.
+* @param string Hexadecimális szám helyes formátumban
+* @return undefined
+*/
+function convertToTenAndTwo(hexadecimalValue) {
+    let baseTenValue = Number.parseInt(hexadecimalValue, 16);
+    console.log(
+        hexadecimalValue + ' in base 10:',
+        baseTenValue,
+        '\n' + hexadecimalValue + ' in base 2:',
+        baseTenValue.toString(2)
+    );
+}
+
