@@ -92,4 +92,84 @@ numbers[10] = 155;
 
 console.log(original, copy);
 
+let autó = {
+    gyártó: "Honda",
+    típus: "Civic",
+    év: 2014,
+    üzemanyag: "benzin"
+}
 
+console.table(autó);
+
+const győztes = 1;
+autó[győztes] = [2021, 2022, 2023];
+console.log(autó);
+
+delete autó[1];
+console.log(autó);
+
+autó.tulajdonos = {
+    név: "Kis Tamás",
+    lakcím: "Sopron"
+};
+console.table(autó);
+
+// 27. gyakorlat
+let lottó = {
+    időpont: "2020-11-25 18:20",
+    főnyeremény: "20.000.000€",
+    nyerőszámok: [1, 2, 3, 4, 5]
+}
+console.table(lottó);
+
+// 28. feladat 
+let ticket = {
+    from: {
+        airport: 'HAN',
+        date: '2020-11-05',
+        time: '09:40'
+    },
+    to: {
+        airport: 'AAA',
+        date: '2020-11-05',
+        time: '11:25'
+    },
+    name: 'Java Script',
+    passport: '123456XY'
+}
+
+console.log(
+    ticket.from.date,
+    ticket.from.time,
+    ticket.to.date,
+    ticket.to.time,
+    ticket.name,
+    ticket.passport,
+    ticket.to.airport
+
+);
+
+// 30.gyakorlat
+let safe = { "123456": "$10.000" };
+
+console.log(safe["123456"]);
+
+// 31. feladat
+let arr = [1, 5, 3, 1];
+
+let map = {};
+
+map[arr[0]] = 0;
+map[arr[1]] = 1;
+map[arr[2]] = 2;
+map[arr[3]] = 3;
+console.table(map);
+
+// 29. feladat
+let tree = { leaf: "fruit" };
+
+tree.tree = tree;
+
+console.log(tree.leaf);
+console.log(tree.tree.leaf);
+console.log(tree.tree.tree.leaf);
