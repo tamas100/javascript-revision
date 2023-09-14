@@ -187,6 +187,9 @@ let square2 = a => a * a;
 (function (tőke, kamat, évek) { return tőke * (1 + kamat / 100) ** évek; })(200000, 4, 10);
 ((tőke, kamat, évek) => tőke * (1 + kamat / 100) ** évek)(200000, 4, 10);
 
+(text => console.log(text))("Lefutottam");
+let sum = ((a, b) => a + b)(5, 4);
+
 //34., 35. gyakorlat
 /**
 * Hexadecimális számot konvertál tizes, aztán kettes 
@@ -204,3 +207,144 @@ function convertToTenAndTwo(hexadecimalValue) {
     );
 }
 
+let f = typeof 25 + ' ';
+
+
+for (let value of arr) {
+    console.log(value);
+}
+
+function nagyobbMintSzáz(szám) {
+    return szám > 100;
+}
+
+let nagyobbMintSzázFatArrow = (szám) => szám > 100;
+
+let nagyobbMintSzázNévtelen = function (szám) { return szám > 100; }
+
+    (function (szám) { return szám > 100; })(99);
+
+((szám) => szám > 100)(99);
+
+// 44. gyakorlat: Írj egy függvényt, amely két szám maximumát adja vissza:
+function maxOfTwoNumbers(a, b) {
+    return a >= b ? a : b;
+}
+let maxOfTwoNumberFatArrow = (a, b) => a >= b ? a : b;
+
+/* 45. gyakorlat: Hozz létre egy véletlen számot 1 és 50 között a következő
+kifejezéssel: Math.trunc( Math.random() * 50 ) + 1. Írj egy függvényt, amely a
+felhasználótol bekér egy számot 1 és 50 között, majd a következő üzenetek
+egyikét jeleníti meg függően a bekért szám és a véletlen szám viszonyától:*/
+
+function találdKi() {
+    let randomNumber = Math.trunc(Math.random() * 50) + 1;
+    let userNumber = parseInt(prompt("Írj be egy számot 1 és 50 között!: "), 10);
+    kiértékelő(userNumber, randomNumber);
+}
+
+function kiértékelő(a, b) {
+    console.log(a, b)
+    if (Number.isNaN(Number(a))) {
+        console.log("Hibás formátum.");
+    } else if (a < 1 || a > 50) {
+        console.log("Csak 1 és 50 közötti egész számokat fogadunk el.");
+    } else if (a === b) {
+        console.log(`Helyes a megfejtés: ${a}.`);
+    } else if (a > b) {
+        console.log("A megoldás kisebb, mint az általad beírt szám.");
+    } else {
+        console.log("A megoldás nagyobb, mint az általad beírt szám.");
+    }
+}
+
+// 46. gyakorlat: Írd át az alábbi programrészletet if helyett switch-et használva:
+switch (state) {
+    case 1:
+        console.log('One');
+        break;
+    case 2:
+        console.log('Two');
+        break;
+    case c:
+        console.log('Three');
+        break;
+}
+
+//47. gyakorlat: Írd át az alábbi programrészletet if helyett switch-et használva:
+switch (state) {
+    case a > 0:
+        console.log('Positive');
+        break;
+    case a < 0:
+        console.log('Negative');
+        break;
+    default:
+        console.log('Zero');
+        break;
+}
+
+/* 48. gyakorlat: Alakítsd át az alábbi kódot egyenértékű kóddá úgy, hogy a switch kifejezés helyett, csak if-else utasításokat, ternáris operátort, vagy
+függvényhívásokat használhatsz: */
+let state = 2;
+
+function logOneTwoOrThree(state) {
+    if (state == 1) {
+        console.log('One');
+    } else if (state == 2 || state == 3) {
+        console.log('Two or Three' + '\n' + 'True');
+    } else {
+        console.log('Default');
+    }
+    console.log('Done');
+}
+
+function logOneTwoOrThreeTernary(state) {
+    return state == 1 ? 'One' :
+        state == (2 || 3) ? 'Two or Three' + '\n' + 'True' :
+            'Default';
+}
+
+let numbers = [19, 65, 9, 17];
+
+function sumArray(array) {
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        sum = sum + array[i];
+    }
+    return sum;
+}
+
+function sumRecursive(array) {
+    return array.length === 0 ? 0 :
+        array[0] + sumRecursive(array.slice(1));
+}
+
+/*49. gyakorlat: Adott egy egész számokat tartalmazó tömb. Írd ki console.log segítségével egymás alá külön sorba a tömb elemeit. Használj
+rekurziót.*/
+
+function arrayLog(array) {
+    if (array.length === 0) return;
+    console.log(array[0]);
+    arrayLog(array.slice(1));
+}
+
+console.log([1, 2, 3, 4, 6].join('\n'));
+
+/* 50. gyakorlat: Írj egy függvényt, amely kiszámol egy sorozatot. Ennek
+a sorozatnak az első két eleme 1 és 1. A harmadik elemtől a sorozat
+következő eleme az előző két elem összege. Hívjuk ezt a sorozatot fibonacci
+sorozatnak:*/
+
+function makeFibonacci(x) {
+    let array = [1, 1];
+    for (let i = 0; i < x - 2; i++) {
+        array.push(array[i] + array[i + 1]);
+    }
+    return array;
+}
+
+function makeFibonacciRecursive(x, array = [1, 1], i = 0) {
+    array.length === 0 ? array : array.push(array[i] + array[i + 1]);
+    return makeFibonacci(x, array, i + 1);
+}
