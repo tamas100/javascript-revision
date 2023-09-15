@@ -222,7 +222,7 @@ let nagyobbMintSzázFatArrow = (szám) => szám > 100;
 
 let nagyobbMintSzázNévtelen = function (szám) { return szám > 100; }
 
-    (function (szám) { return szám > 100; })(99);
+let nagyobbMintSzázAzonnal = (function (szám) { return szám > 100; })(99);
 
 ((szám) => szám > 100)(99);
 
@@ -259,30 +259,31 @@ function kiértékelő(a, b) {
 }
 
 // 46. gyakorlat: Írd át az alábbi programrészletet if helyett switch-et használva:
-switch (state) {
-    case 1:
-        console.log('One');
-        break;
-    case 2:
-        console.log('Two');
-        break;
-    case c:
-        console.log('Three');
-        break;
-}
+
+// switch (state) {
+//     case 1:
+//         console.log('One');
+//         break;
+//     case 2:
+//         console.log('Two');
+//         break;
+//     case c:
+//         console.log('Three');
+//         break;
+// }
 
 //47. gyakorlat: Írd át az alábbi programrészletet if helyett switch-et használva:
-switch (state) {
-    case a > 0:
-        console.log('Positive');
-        break;
-    case a < 0:
-        console.log('Negative');
-        break;
-    default:
-        console.log('Zero');
-        break;
-}
+// switch (state) {
+//     case a > 0:
+//         console.log('Positive');
+//         break;
+//     case a < 0:
+//         console.log('Negative');
+//         break;
+//     default:
+//         console.log('Zero');
+//         break;
+// }
 
 /* 48. gyakorlat: Alakítsd át az alábbi kódot egyenértékű kóddá úgy, hogy a switch kifejezés helyett, csak if-else utasításokat, ternáris operátort, vagy
 függvényhívásokat használhatsz: */
@@ -305,7 +306,7 @@ function logOneTwoOrThreeTernary(state) {
             'Default';
 }
 
-let numbers = [19, 65, 9, 17];
+// let számok = [19, 65, 9, 17];
 
 function sumArray(array) {
     let sum = 0;
@@ -348,3 +349,171 @@ function makeFibonacciRecursive(x, array = [1, 1], i = 0) {
     array.length === 0 ? array : array.push(array[i] + array[i + 1]);
     return makeFibonacci(x, array, i + 1);
 }
+
+// while
+let számok = [19, 65, 9, 17];
+
+function sumArrayWhile(array) {
+    let sum = 0;
+    let i = 0;
+    while (i < array.length) {
+        sum = sum + array[i];
+        i++;
+    }
+    console.log("A loop " + i + ' alkalommal futott le.')
+    console.log(`A loop ${i} alkalommal futott le.`)
+    return sum;
+}
+
+// 51. gyakorlat: Idézzük fel a korábbi map struktúra építésének megoldását:
+let arr2 = [1, 5, 3, 1];
+let map2 = {};
+map2[arr2[0]] = true;
+map2[arr2[1]] = true;
+map2[arr2[2]] = true;
+map2[arr2[3]] = true;
+console.table(map2);
+/*Írj egy függvényt, amely egy tetszőleges hosszú tömbből épít egy hasonló
+map struktúrát.*/
+function makeArrayWhile(array) {
+    let map3 = {};
+    let i = 0;
+    while (i < array.length) {
+        map3[arr2[i]] = true;
+        i++;
+    }
+    console.table(map3);
+}
+// 52. gyakorlat: Idézzük fel a számrendszer konvertáló függvényünket:
+let numberSystems = [2, 5, 8, 36, 7, 12, 16]
+function convertAll(hexaNumber, array) {
+    let baseTenValue = Number.parseInt(hexaNumber, 16);
+    i = 0;
+    console.log(hexaNumber + ' in base 10: ' + baseTenValue)
+    while (i < array.length) {
+        console.log(hexaNumber + ' in base ' + array[i] + ': ' + baseTenValue.toString(array[i]));
+        i++;
+    }
+}
+
+convertAll('ACE', numberSystems);
+
+// do while
+let numbers2 = [19, 65, 9, 17, 4, 1, 2, 6, 1, 9, 9, 2, 1];
+
+function sumArray(values) {
+    if (values.length == 0) return 0;
+    let sum = 0;
+    let i = 0;
+    do {
+        sum += values[i];
+        i += 1;
+    } while (i < values.length);
+    console.log('The loop was executed ' + i + ' times');
+    return sum;
+}
+
+sumArray(numbers2);
+
+/*
+53. Gyakorlat: Hozz létre egy véletlen számot az alábbi programkódot
+felhasználva:
+Math.trunc( Math.random() * 50 ) + 1
+A fenti utasítás létrehoz egy véletlen számot 1 és 50 között.
+Készíts egy függvényt amely bekér a felhasználótol egy 1 és 50 közötti
+számot és ismételd a kérést addig amíg a helyes értéket nem kapod. (a)
+használj do-while loop-ot, (b) használj rekurziót.
+*/
+
+
+function számKitalálós() {
+    let randomNumber = Math.trunc(Math.random() * 50) + 1;
+    let userSzám;
+    do {
+        userSzám = parseInt(prompt("Gondoltam egy egész számra 1 és 50 között. Találd Ki!: "));
+    } while (userSzám != randomNumber);
+    console.log("Gratulálok, kitaláltad!" + randomNumber)
+}
+
+function számKitalálósRecursive() {
+    let randomNumber = Math.trunc(Math.random() * 50) + 1;
+    userSzám = parseInt(prompt("Gondoltam egy egész számra 1 és 50 között. Találd Ki!: "));
+    if (randomNumber != userSzám) számKitalálósRecursive();
+}
+
+// for
+//54. és 55. gyakorlat: Idézd fel a while ciklus két gyakorlatának megol-
+//dását. Írd át a megoldásokat úgy, hogy while helyett for ciklust használsz.
+
+function makeArrayFor(array) {
+    let map3 = {};
+    for (let i = 0; i < array.length; i++) {
+        map3[arr2[i]] = true;
+    }
+    console.table(map3);
+}
+
+function convertAllFor(hexaNumber, array) {
+    let baseTenValue = Number.parseInt(hexaNumber, 16);
+    console.log(hexaNumber + ' in base 10: ' + baseTenValue)
+    for (let i = 0; i < array.length; i++) {
+        console.log(hexaNumber + ' in base ' + array[i] + ': ' + baseTenValue.toString(array[i]));
+    }
+}
+
+convertAllFor('ACE', numberSystems);
+
+// for..in, for..of
+
+//56. gyakorlat: Készíts egy függvényt amely egy tömböt fogad bemenő
+// paraméterként és a tömb legnagyobb értékét adja vissza.
+let datas = [19, 65, 9, 17, -99];
+
+function max(array) {
+    let maxNumber = -Infinity;
+    if (array.length === 0) {
+        return null;
+    } else {
+        for (let i of array) {
+            if (i > maxNumber) maxNumber = i;
+        }
+    }
+    return maxNumber;
+}
+
+function max2(array) {
+    if (array.length === 0) {
+        return null;
+    } else {
+        return Math.max(...array);
+    }
+}
+
+max(datas);
+max2(datas);
+
+// Spread Operátor, Destrukturálás, Rest Paraméter
+
+const Basket1 = ['Apple', 'Pear', 'Strawberry'];
+const Basket2 = ['Banana', 'Peach'];
+// const MergedBasket = [];
+
+// for (let fruit of Basket1) {
+//     MergedBasket.push(fruit);
+// }
+// for (let fruit of Basket2) {
+//     MergedBasket.push(fruit);
+// }
+const MergedBasket = [...Basket1, ...Basket2];
+/* 57 Gyakorlat: Egészítsd ki a kódot úgy, hogy a kód futásának ered-
+ményeként a konzolra az 1 7 3 számokat írja ki a program. A kód
+kiegészítésében nem használhatsz számjegyeket.*/
+
+let A = [1, 2, 3];
+let B = [...A];
+B[0] += 1;
+console.log(
+    A[0],
+    B[0] + B[1] + B[2],
+    B.length
+);
