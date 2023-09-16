@@ -517,3 +517,46 @@ console.log(
     B[0] + B[1] + B[2],
     B.length
 );
+
+// 58. Gyakorlat: Cseréld fel az alábbi két értéket egyetlen utasítással.
+let swap = 'swap';
+let me = 'me';
+
+[swap, me] = [me, swap];
+
+// 59. Gyakorlat: Egészítsd ki az alábbi kódot egy destruktúráló kifejezés-
+//sel úgy, hogy az n. fibonacci számot számolja ki.
+
+//60. Gyakorlat: Milyen változóértékeket hoz létre a következő kifejezés?
+
+let node = { left: { left: 3, right: 4 }, right: 5 };
+let { loft, right: val } = node;
+
+// Írjunk egy függvényt, amely akármennyi szám argumentumot
+// képes feldolgozni. A függvény visszatérési értéke az argumentumok közötti
+// maximum és minimum érték különbsége
+
+function calcMaxMinusMin(...args) {
+    return Math.max(...args) - Math.min(...args);
+}
+
+/*
+61. Gyakorlat: Írj egy függvényt, amely kiírja az összes argumentu-
+mát egyenként úgy, hogy minden argumentum külön sorba kerül. Ha az
+argumentumlista üres, a kiírt érték undefined. Használj rekurziót és rest
+paramétert.
+*/
+function printArgs(...args) {
+    if (args.length === 0) {
+        return undefined;
+    } else {
+        console.log(args[0]);
+        printArgs(...args.slice(1));
+    }
+}
+
+// head és tail
+function printArgs(head, ...tail) {
+    console.log(head);
+    if (tail.length > 0) printArgs(...tail);
+}
